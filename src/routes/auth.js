@@ -22,21 +22,13 @@ const users = [
         email: 'client@vuexy.com'
     },
     {
-        id: 3,
-        role: 'admin1',
-        password: 'admin',
-        fullName: 'John Doe',
-        username: 'johndoe',
-        email: 'admin@vuexy.com'
-      },
-      {
         id: 4,
         role: 'State Coordinator',
         password: 'snow22',
         fullName: 'Jane snow',
         username: 'Ahmadou',
         email: 'ahmadou@calkia.com'
-      }
+    }
 ]
 
 const router = express.Router();
@@ -46,10 +38,10 @@ router.use(express.json())
 
 
 
-router.post('/login',(req , pres) => {
+router.post('/login',(req , res) => {
   const { email , password } = req.body;
   console.log(email , password)
-  res.send(201);
+  
   
   const user = users.find(u => u.email === email && u.password === password)
   if (user) {
@@ -61,9 +53,9 @@ router.post('/login',(req , pres) => {
       accessToken,
       userData: { ...user, password: undefined }
     }
-    console.log(resp)
+    console.log(resp.accessToken)
 
-    res.status(200).send(resp)
+    res.send(resp)
   } else {
     const err = console.log('User Not Found You Need to Register !!!')
     return [400, err]
