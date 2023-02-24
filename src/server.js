@@ -42,9 +42,9 @@ connection.connect((err) => {
       console.log(`connected to Mysql Server ${connection.threadId}`)
    }
 })*/}
+const PORT = process.env.PORT || 5000
 
-
-app.use('/api/auth',authRoute);
+app.use('/api/auth',authRoute)
 app.use('/api/profile', profileRoute)
 app.use('/api/help', helpRoute)
 app.use('/api/pricing', pricingRoute)
@@ -55,7 +55,7 @@ app.use('/api/search', searchRoute)
 app.use('/api/email', mailRoute)
 app.use('/api/chat', chatRoute)
 
-app.listen(3000, () => console.log(`Server is Listening to ${3000}`));
+app.listen(PORT, () => console.log(`Server is Listening to ${PORT}`));
 app.get('/', (req,res) => {
    res.send(users)
 })
