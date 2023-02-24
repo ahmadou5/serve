@@ -46,7 +46,7 @@ router.use(express.json())
 
 
 
-router.post('/login',(req , res) => {
+router.post('/login',(req , pres) => {
   const { email , password } = req.body;
   console.log(email , password)
   res.send(201);
@@ -57,13 +57,13 @@ router.post('/login',(req , res) => {
 
     const accessToken = jwt.sign({ id: user.id }, secret, { expiresIn: '1h' })
 
-    const res = {
+    const resp = {
       accessToken,
       userData: { ...user, password: undefined }
     }
-    console.log(res)
+    console.log(resp)
 
-    return [200, res]
+    res.status(200).send(resp)
   } else {
     const err = console.log('User Not Found You Need to Register !!!')
     return [400, err]
