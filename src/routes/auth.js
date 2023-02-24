@@ -23,7 +23,7 @@ const users = [
     },
     {
         id: 3,
-        role: 'admin',
+        role: 'admin1',
         password: 'admin',
         fullName: 'John Doe',
         username: 'johndoe',
@@ -32,7 +32,7 @@ const users = [
       {
         id: 4,
         role: 'State Coordinator',
-        password: 'snow',
+        password: 'snow22',
         fullName: 'Jane snow',
         username: 'Ahmadou',
         email: 'ahmadou@calkia.com'
